@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
+import 'package:equatable/equatable.dart';
 
-class Category extends Equarable {
+class Category extends Equatable {
   final String id;
   final String name;
   final String? description;
@@ -12,17 +12,20 @@ class Category extends Equarable {
     this.description,
     required this.imageUrl,
   });
-}
 
-factory Category.fromJson(Map<String, dynamic> json) {
-  return Category(
-    id: json['id'] as String,
-    name: json['name'] as String,
-    description: json['description'] as String,
-    imageUrl: json['imageUrl'] ?? '',
-  );
-}
+  factory Category.fromJson(
+    Map<String, dynamic> json, {
+    String? id,
+  }) {
+    return Category(
+      id: id ?? json['id'] ?? '',
+      name: json['name'] ?? '',
+      description: json['description'] ?? '',
+      imageUrl:
+          json['imageUrl'] ?? 'https://source.unsplash.com/random/?fashion',
+    );
+  }
 
-@override
-List<Object?> get props => [id, name, description, imageUrl];
-static const categories = [];
+  @override
+  List<Object?> get props => [id, name, description, imageUrl];
+}
