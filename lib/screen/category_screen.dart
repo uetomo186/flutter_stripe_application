@@ -57,15 +57,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               //   arguments: categories[index],
               // );
             },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  image: NetworkImage(categories[index].imageUrl),
-                  fit: BoxFit.cover,
+            child: Hero(
+              tag: categories[index].id,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    image: NetworkImage(categories[index].imageUrl),
+                    fit: BoxFit.cover,
+                  ),
                 ),
+                height: height.toDouble(),
               ),
-              height: height.toDouble(),
             ),
           );
         },
