@@ -37,11 +37,14 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Categories'),
       ),
       body: MasonryGridView.count(
         crossAxisCount: 3,
+        mainAxisSpacing: 4,
+        crossAxisSpacing: 5,
         itemCount: Category.categories.length,
         itemBuilder: (context, index) {
           final height = _ectends[index] * 100;
