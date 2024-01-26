@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "433300673330",
+    "project_id": "flutter-stripe-application",
+    "storage_bucket": "flutter-stripe-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433300673330:android:9f68c88ee4e4ed95e97d2b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_stripe_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9LICqJD0LlkwWJpdtRBMpPJVey1RMW_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
