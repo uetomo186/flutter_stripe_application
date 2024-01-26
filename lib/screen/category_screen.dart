@@ -42,15 +42,31 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         title: const Text('Categories'),
       ),
       body: MasonryGridView.count(
+        padding: const EdgeInsets.only(top: 120, left: 4, right: 4),
         crossAxisCount: 3,
         mainAxisSpacing: 4,
         crossAxisSpacing: 5,
         itemCount: Category.categories.length,
         itemBuilder: (context, index) {
           final height = _ectends[index] * 100;
-          return Container(
-            color: Colors.primaries[index % Colors.primaries.length],
-            height: height.toDouble(),
+          return InkWell(
+            onTap: () {
+              // Navigator.pushNamed(
+              //   context,
+              //   '/category',
+              //   arguments: categories[index],
+              // );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: NetworkImage(categories[index].imageUrl),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              height: height.toDouble(),
+            ),
           );
         },
       ),
