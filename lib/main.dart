@@ -1,11 +1,17 @@
+import 'package:db_client/db_client.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe_application/firebase_options.dart';
+import 'package:flutter_stripe_application/repositories/category_repository.dart';
 import 'package:flutter_stripe_application/screen/category_screen.dart';
+
+final dbClient = DbClient();
+final categoryRepository = CategoryRepository(dbClient: dbClient);
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // categoryRepository.createCategories();
   runApp(const MyApp());
 }
 

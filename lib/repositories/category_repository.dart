@@ -7,10 +7,25 @@ class CategoryRepository {
   const CategoryRepository({required this.dbClient});
 
   Future<List<Category>> fetchCategories() async {
-    throw UnimplementedError();
+    try {
+      final categoriesData = await dbClient.fetchAll(collection: 'categories');
+      return categoriesData
+          .map((categoryData) =>
+              Category.fromJson(categoryData.data, id: categoryData.id))
+          .toList();
+    } catch (err) {
+      throw Exception('Error fetching categories: $err');
+    }
   }
 
   Future<void> createCategories() async {
+    try {
+      for (final category in categories) {
+        await dbClient.add(collection: 'categories', data: category);
+      }
+    } catch (err) {
+      throw Exception('Error creating categories: $err');
+    }
     throw UnimplementedError();
   }
 }
