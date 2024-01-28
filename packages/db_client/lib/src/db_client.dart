@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:db_client/src/db_record.dart';
-import 'package:flutter/material.dart';
 
 class DbClient {
   final FirebaseFirestore _firestore;
@@ -15,13 +14,22 @@ class DbClient {
     try {
       final docRef = await _firestore.collection(collection).add(data);
       return docRef.id;
-    } catch (e) {
-      debugPrint(e.toString());
-      rethrow;
+    } catch (err) {
+      throw Exception('Error fetching documents: $err');
     }
   }
 
-  Future<List<DbRecord>> fetchAll() async {
-    throw UnimplementedError();
+  Future<List<DbRecord>> fetchAll({
+    required String collection,
+  }) async {
+    try {
+      final colRef = _firestore.collection(collection);
+      final documnts = await colRef.get();
+      return documnts.docs
+          .map((doc) => DbRecord(id: doc.id, data: doc.data()))
+          .toList();
+    } catch (err) {
+      throw Exception('Error fetching documents: $err');
+    }
   }
 }
