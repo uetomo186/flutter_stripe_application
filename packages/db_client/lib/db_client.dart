@@ -1,7 +1,4 @@
 library db_client;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/db_client.dart';
+export 'src/db_record.dart';
