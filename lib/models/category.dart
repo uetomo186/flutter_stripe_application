@@ -29,38 +29,38 @@ class Category extends Equatable {
   @override
   List<Object?> get props => [id, name, description, imageUrl];
 
-  static const categories = [
-    Category(
-        id: '1',
-        name: 'Sportswear',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-    Category(
-        id: '2',
-        name: 'Cycling',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-    Category(
-        id: '3',
-        name: 'Footwear',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-    Category(
-        id: '4',
-        name: 'Accessories',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-    Category(
-        id: '5',
-        name: 'Watersports',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-    Category(
-        id: '6',
-        name: 'Camping',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-    Category(
-        id: '7',
-        name: 'Indoor',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-    Category(
-        id: '8',
-        name: 'Golf',
-        imageUrl: 'https://source.unsplash.com/random/?fashion'),
-  ];
+  // static const categories = [
+  //   Category(
+  //       id: '1',
+  //       name: 'Sportswear',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  //   Category(
+  //       id: '2',
+  //       name: 'Cycling',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  //   Category(
+  //       id: '3',
+  //       name: 'Footwear',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  //   Category(
+  //       id: '4',
+  //       name: 'Accessories',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  //   Category(
+  //       id: '5',
+  //       name: 'Watersports',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  //   Category(
+  //       id: '6',
+  //       name: 'Camping',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  //   Category(
+  //       id: '7',
+  //       name: 'Indoor',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  //   Category(
+  //       id: '8',
+  //       name: 'Golf',
+  //       imageUrl: 'https://source.unsplash.com/random/?fashion'),
+  // ];
 }

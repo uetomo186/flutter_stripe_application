@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_stripe_application/main.dart';
 import 'package:flutter_stripe_application/models/category.dart';
 
 class CategoriesScreen extends StatefulWidget {
@@ -12,7 +13,7 @@ class CategoriesScreen extends StatefulWidget {
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
-  List<Category> categories = Category.categories;
+  List<Category> _categories = [];
   List<int> _ectends = [];
 
   final rnd = Random();
@@ -24,12 +25,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   }
 
   _loadCategory() async {
+    final categories = await categoryRepository.fetchCategories();
+
     final extents = List<int>.generate(
       categories.length,
       (index) => rnd.nextInt(3) + 2,
     );
 
     setState(() {
+      _categories = categories;
       _ectends = extents;
     });
   }
@@ -46,9 +50,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         crossAxisCount: 3,
         mainAxisSpacing: 4,
         crossAxisSpacing: 5,
-        itemCount: Category.categories.length,
+        itemCount: _categories.length,
         itemBuilder: (context, index) {
           final height = _ectends[index] * 100;
+          final category = _categories[index];
           return InkWell(
             onTap: () {
               // Navigator.pushNamed(
@@ -58,12 +63,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               // );
             },
             child: Hero(
-              tag: categories[index].id,
+              tag: category.id,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: NetworkImage(categories[index].imageUrl),
+                    image: NetworkImage(category.imageUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
