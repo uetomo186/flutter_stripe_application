@@ -54,6 +54,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         itemBuilder: (context, index) {
           final height = _ectends[index] * 100;
           final category = _categories[index];
+          debugPrint('categories: $_categories');
           return InkWell(
             onTap: () {
               // Navigator.pushNamed(
